@@ -1,12 +1,13 @@
 data{ 
-  int N; 
-  real<lower=0> theta; 
-}
-parameters { 
-  vector[N] y_hat; 
+  int<lower=0> N;
+  int<lower=0> k;
+  real<lower=0, upper=1> theta; 
 }
 model { 
-  for(i in 1:N) 
-    y_hat[i] ~ binomial(N, theta); 
+}
+generated quantities {
+  int<lower=0,upper=k> y[N];
+  for (i in 1:N)
+    y[i] = binomial_rng(k, theta);
 }
 

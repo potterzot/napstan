@@ -1,6 +1,5 @@
 data{
   int<lower=0> N;
-  int<lower=0> k;
   int y[N];
 }
 parameters {
@@ -9,8 +8,8 @@ parameters {
 transformed parameters {
 }
 model {
-  theta ~ beta(1,1);      //Prior
-  y ~ binomial(k, theta); //Likelihood
+  theta ~ beta(1,1);
+  y ~ bernoulli(theta);
 }
 generated quantities {
   //vector[N] y_sim;

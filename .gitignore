@@ -1,2 +1,5 @@
 #Git ignore
 .Rproj.user
+
+# Don't include compiled models
+*.rds
