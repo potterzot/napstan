@@ -17,4 +17,4 @@ This is not a true `R` package, so there is no installation, but you can clone t
 
     make test
 
-in the repository directory, and look at the tests in `tests/testthat` to get a sense of how each model is varified against synthetic data.
+in the repository directory, and look at the tests in `tests/testthat` to get a sense of how each model is verified against synthetic data.
