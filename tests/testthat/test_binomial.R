@@ -34,7 +34,7 @@ test_that("Binomial model estimates true parameter", {
 
 # Data generating process ------------------------------------------------------
 test_that("Binomial data generating process returns correct data", {
-  model <- stan_model(file = "../../binomial_dgp.stan")
+  model <- stan_model(file = "../../binomial_dgp.stan", save_dso = FALSE)
   stan_sample <- sampling(model, 
                           data = list(N = n, k = k, theta = p), 
                           algorithm = "Fixed_param", iter = 10000)

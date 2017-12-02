@@ -32,9 +32,10 @@ test_that("Bernoulli model estimates true parameter", {
 })
 
 test_that("Bernoulli dgp gives correct data", {
-  model <- stan_model("../../bernoulli_dgp.stan")
+  model <- stan_model("../../bernoulli_dgp.stan", save_dso = FALSE)
   stan_sample <- sampling(model, 
                           data = list(N = n, theta = p),
+                          save_dso = FALSE,
                           algorithm = "Fixed_param", iter = 10000)
   data_stan <- extract(stan_sample)$y
   expect_lt(mean(data_stan) - p, 0.001)
